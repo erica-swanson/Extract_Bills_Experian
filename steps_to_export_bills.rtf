@@ -1,0 +1,30 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red242\green242\blue242;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 #ON apu-had-box01.useast.tni01.com\
+\
+# Easier way to select bills greater than bill end\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1 \cf2 \cb0 \CocoaLigature0 echo -n "SELECT * FROM bill WHERE tenant_id = '11'  AND bill_end > '2016-02-01\'92 ORDER BY bill_end DESC;" |psql -h apu-soa-rds01-replica.useast.tni01.com -U tendrilpgsuser92 -d bills > duke_bills_.20160201.csv
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+\
+\
+echo -n "SELECT * FROM bill WHERE tenant_id = '
+\f1\fs18 \cf2 \cb0 \CocoaLigature0 52550498846313472
+\f0\fs24 \cf0 \cb1 \CocoaLigature1 '  AND bill_end > '2016-04-23' ORDER BY bill_end DESC limit 10;" |psql -h apu-soa-rds01-replica.useast.tni01.com -U tendrilpgsuser92 -d bills > xxx.csv\
+\
+# Map association_id to id\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f1\fs20 \cf1 \cb0 \CocoaLigature0  echo "SELECT externalaccountid,id FROM accounts WHERE tenantid = '11' limit 10 " |psql -h apu-soa-rds01-replica.useast.tni01.com -U tendrilpgsuser92 -d zeus -A -F","\
+\
+CMP\
+ echo "SELECT externalaccountid,id FROM accounts WHERE tenantid = '
+\fs26 \cf2 52550498846313472
+\fs20 \cf1 ' limit 10 " |psql -h apu-soa-rds01-replica.useast.tni01.com -U tendrilpgsuser92 -d zeus -A -F","}
